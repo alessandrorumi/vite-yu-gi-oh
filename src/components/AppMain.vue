@@ -1,6 +1,11 @@
 <script>
+import SingleCard from './SingleCard.vue';
+
 export default {
-  name: 'AppMain'
+  name: 'AppMain',
+  components: {
+    SingleCard
+  }
 }
 </script>
 
@@ -26,16 +31,36 @@ export default {
       <!-- Card Container -->
       <div class="card-container">
         <div class="row m-0 gy-3">
-          <div class="carta">AAA</div>
-          <div class="carta">BBB</div>
-          <div class="carta">CCC</div>
-          <div class="carta">DDD</div>
-          <div class="carta">EEE</div>
-          <div class="carta">AAA</div>
-          <div class="carta">BBB</div>
-          <div class="carta">CCC</div>
-          <div class="carta">DDD</div>
-          <div class="carta">EEE</div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
+          <div class="mycard">
+            <SingleCard />
+          </div>
         </div>
       </div>
     </div>
@@ -65,12 +90,13 @@ main {
 
     .card-container {
       .row {
+        display: flex;
+        justify-content: space-between;
 
-        .carta {
+        .mycard {
           border: 3px solid black;
-          width: calc((20%) - .5rem);
-          margin-right: .5rem;
-          height: 100px;
+          width: calc((20%) - 1rem);
+          min-height: 100px;
         }
       }
     }
