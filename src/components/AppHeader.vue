@@ -6,7 +6,7 @@ export default {
 
 <template>
   <header>
-    <div class="logo me-3">
+    <div class="logo ms-3 me-4">
       <img src="../assets/yu-gi-oh-logo.svg" alt="">
     </div>
     <h1>Yu-Gi-Oh Api</h1>
