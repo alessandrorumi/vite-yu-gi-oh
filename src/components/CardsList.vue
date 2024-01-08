@@ -1,11 +1,17 @@
 <script>
 import SingleCard from './SingleCard.vue';
+import { store } from '../store';
 
 export default {
-  name: 'AppMain',
+  name: 'CardsList',
   components: {
     SingleCard
-  }
+  },
+  data() {
+    return {
+      store,
+    }
+  },
 }
 </script>
 
@@ -31,35 +37,8 @@ export default {
       <!-- Card Container -->
       <div class="card-container">
         <div class="row m-0 gy-3">
-          <div class="mycard">
-            <SingleCard />
-          </div>
-          <div class="mycard">
-            <SingleCard />
-          </div>
-          <div class="mycard">
-            <SingleCard />
-          </div>
-          <div class="mycard">
-            <SingleCard />
-          </div>
-          <div class="mycard">
-            <SingleCard />
-          </div>
-          <div class="mycard">
-            <SingleCard />
-          </div>
-          <div class="mycard">
-            <SingleCard />
-          </div>
-          <div class="mycard">
-            <SingleCard />
-          </div>
-          <div class="mycard">
-            <SingleCard />
-          </div>
-          <div class="mycard">
-            <SingleCard />
+          <div v-for="card in store.cardsList" :key="card.id" class="mycard p-0">
+            <SingleCard :info="card" />
           </div>
         </div>
       </div>
@@ -73,18 +52,15 @@ export default {
 @use '../styles/partials/variables.scss' as *;
 
 main {
-  min-height: 800px;
-  background-color: rgb(153, 102, 36);
+  background-color: $mr-brown;
   padding: 0 10rem;
 
   .container {
     background-color: #fff;
-    min-height: 600px;
 
     .filter-result {
       background-color: #000;
       height: 40px;
-      color: #fff;
       @include vert-align-center;
     }
 
@@ -94,9 +70,9 @@ main {
         justify-content: space-between;
 
         .mycard {
-          border: 3px solid black;
           width: calc((20%) - 1rem);
-          min-height: 100px;
+          background-color: $mr-brown;
+          text-align: center;
         }
       }
     }

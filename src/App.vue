@@ -1,13 +1,13 @@
 <script>
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue'
-import AppMain from './components/AppMain.vue';
+import CardsList from './components/CardsList.vue';
 import { store } from './store';
 
 export default {
   components: {
     AppHeader,
-    AppMain
+    CardsList
   },
   data() {
     return {
@@ -34,7 +34,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain />
+  <CardsList />
 </template>
 
 <style lang="scss">
