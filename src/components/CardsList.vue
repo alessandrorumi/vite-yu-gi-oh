@@ -18,20 +18,9 @@ export default {
 </script>
 
 <template>
-  <main class="py-5">
-    <!-- Dropdown Button -->
-    <div class="dropdown">
-      <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
+  <div class="pt-4">
 
-    <div class="container mt-4 p-5">
+    <div class="container p-5">
       <!-- N° Carte (In base al filtro) -->
       <div class="filter-result">
         <span><b>Found X Cards</b></span>
@@ -48,37 +37,31 @@ export default {
         <AppLoader v-else />
       </div>
     </div>
-
-  </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables.scss' as *;
 
-main {
-  background-color: $mr-brown;
-  padding: 0 10rem;
+.container {
+  background-color: #fff;
 
-  .container {
-    background-color: #fff;
+  .filter-result {
+    background-color: #000;
+    height: 40px;
+    @include vert-align-center;
+  }
 
-    .filter-result {
-      background-color: #000;
-      height: 40px;
-      @include vert-align-center;
-    }
+  .card-container {
+    .row {
+      display: flex;
+      justify-content: space-between;
 
-    .card-container {
-      .row {
-        display: flex;
-        justify-content: space-between;
-
-        .mycard {
-          width: calc((20%) - 1rem);
-          background-color: $mr-brown;
-          text-align: center;
-        }
+      .mycard {
+        width: calc((20%) - 1rem);
+        background-color: $mr-brown;
+        text-align: center;
       }
     }
   }

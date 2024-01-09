@@ -3,11 +3,13 @@ import axios from 'axios';
 import AppHeader from './components/AppHeader.vue'
 import CardsList from './components/CardsList.vue';
 import { store } from './store';
+import AppSearch from './components/AppSearch.vue';
 
 export default {
   components: {
     AppHeader,
-    CardsList
+    CardsList,
+    AppSearch
   },
   data() {
     return {
@@ -35,9 +37,19 @@ export default {
 
 <template>
   <AppHeader />
-  <CardsList />
+  <main>
+    <AppSearch />
+    <CardsList />
+  </main>
 </template>
 
 <style lang="scss">
-@use '../src/styles/general.scss' as *
+@use '../src/styles/general.scss' as *;
+@use '../src/styles/partials/mixins' as *;
+@use '../src/styles/partials/variables.scss' as *;
+
+main {
+  background-color: $mr-brown;
+  padding: 0 10rem;
+}
 </style>
