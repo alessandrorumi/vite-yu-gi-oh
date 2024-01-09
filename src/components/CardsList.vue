@@ -1,11 +1,13 @@
 <script>
 import SingleCard from './SingleCard.vue';
 import { store } from '../store';
+import AppLoader from './AppLoader.vue';
 
 export default {
   name: 'CardsList',
   components: {
-    SingleCard
+    SingleCard,
+    AppLoader
   },
   data() {
     return {
@@ -36,11 +38,14 @@ export default {
       </div>
       <!-- Card Container -->
       <div class="card-container">
-        <div class="row m-0 gy-3">
+
+        <div v-if="!store.loading" class="row m-0 gy-3">
           <div v-for="card in store.cardsList" :key="card.id" class="mycard p-0">
             <SingleCard :info="card" />
           </div>
         </div>
+
+        <AppLoader v-else />
       </div>
     </div>
 

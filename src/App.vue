@@ -19,7 +19,8 @@ export default {
       axios
         .get(store.apiUrl)
         .then((response) => {
-          store.cardsList = response.data.data
+          store.cardsList = response.data.data;
+          store.loading = false
         })
         .catch((error) => {
           console.log('Errore Chiamata Api', error);
