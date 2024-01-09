@@ -1,6 +1,13 @@
 <script>
+import { store } from '../store';
+
 export default {
-  name: 'AppSearch'
+  name: 'AppSearch',
+  data() {
+    return {
+      store,
+    }
+  },
 }
 </script>
 
@@ -11,7 +18,7 @@ export default {
       Choose Archetype
     </button>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Test</a></li>
+      <li class="dropdown-item" v-for="archetype in store.archetypes">{{ archetype.archetype_name }}</li>
     </ul>
   </div>
 </template>

@@ -27,10 +27,21 @@ export default {
         .catch((error) => {
           console.log('Errore Chiamata Api', error);
         })
+    },
+    getArchetypeCard() {
+      axios
+        .get(store.archetipeUrl)
+        .then((response) => {
+          store.archetypes = response.data;
+        })
+        .catch((error) => {
+          console.log('Errore Chiamata Api', error);
+        })
     }
   },
   created() {
     this.getCardsInfo();
+    this.getArchetypeCard();
   }
 }
 </script>
