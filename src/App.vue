@@ -17,9 +17,14 @@ export default {
     }
   },
   methods: {
+    // Ottieni info carte
     getCardsInfo() {
+      let filteredUrl = store.apiUrl;
+      if (store.searchArchetype) {
+        filteredUrl += `&archetype=${store.searchArchetype}`
+      }
       axios
-        .get(store.apiUrl)
+        .get(filteredUrl)
         .then((response) => {
           store.cardsList = response.data.data;
           store.loading = false
@@ -28,6 +33,7 @@ export default {
           console.log('Errore Chiamata Api', error);
         })
     },
+    // Ottieni archetipi
     getArchetypeCard() {
       axios
         .get(store.archetipeUrl)
@@ -37,7 +43,7 @@ export default {
         .catch((error) => {
           console.log('Errore Chiamata Api', error);
         })
-    }
+    },
   },
   created() {
     this.getCardsInfo();
@@ -49,7 +55,7 @@ export default {
 <template>
   <AppHeader />
   <main>
-    <AppSearch />
+    <AppSearch @filter="getCardsInfo" />
     <CardsList />
   </main>
 </template>

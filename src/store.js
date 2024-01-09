@@ -8,6 +8,7 @@ export const store = reactive({
   // Array e Url Api relativo al filtro degli archetipi delle Card
   archetypes: [],
   archetipeUrl: 'https://db.ygoprodeck.com/api/v7/archetypes.php',
+  searchArchetype: '',
 
   loading: true,
 })
