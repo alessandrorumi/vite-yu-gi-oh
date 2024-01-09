@@ -16,7 +16,7 @@ export default {
   <div class="dropdown pt-4">
     <select class="form-select" aria-label="Default select example" v-model="store.searchArchetype"
       @change="$emit('filter')">
-      <option selected>Choose Archetype</option>
+      <option value="" disabled selected>Choose Archetype</option>
       <option v-for="archetype in store.archetypes" :value="archetype.archetype_name">{{
         archetype.archetype_name }}
       </option>

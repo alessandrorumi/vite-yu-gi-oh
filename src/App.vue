@@ -2,14 +2,16 @@
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue'
 import CardsList from './components/CardsList.vue';
-import { store } from './store';
 import AppSearch from './components/AppSearch.vue';
+import MessageResults from './components/MessageResults.vue';
+import { store } from './store';
 
 export default {
   components: {
     AppHeader,
     CardsList,
-    AppSearch
+    AppSearch,
+    MessageResults
   },
   data() {
     return {
@@ -56,6 +58,7 @@ export default {
   <AppHeader />
   <main>
     <AppSearch @filter="getCardsInfo" />
+    <MessageResults />
     <CardsList />
   </main>
 </template>

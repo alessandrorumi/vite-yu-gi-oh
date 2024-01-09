@@ -18,24 +18,17 @@ export default {
 </script>
 
 <template>
-  <div class="pt-4">
+  <div class="container p-5">
+    <!-- Card Container -->
+    <div class="card-container">
 
-    <div class="container p-5">
-      <!-- N° Carte (In base al filtro) -->
-      <div class="filter-result">
-        <span><b>Found X Cards</b></span>
-      </div>
-      <!-- Card Container -->
-      <div class="card-container">
-
-        <div v-if="!store.loading" class="row m-0 gy-3">
-          <div v-for="card in store.cardsList" :key="card.id" class="mycard p-0">
-            <SingleCard :info="card" />
-          </div>
+      <div v-if="!store.loading" class="row m-0 gy-3">
+        <div v-for="card in store.cardsList" :key="card.id" class="mycard p-0">
+          <SingleCard :info="card" />
         </div>
-
-        <AppLoader v-else />
       </div>
+
+      <AppLoader v-else />
     </div>
   </div>
 </template>
@@ -46,12 +39,6 @@ export default {
 
 .container {
   background-color: #fff;
-
-  .filter-result {
-    background-color: #000;
-    height: 40px;
-    @include vert-align-center;
-  }
 
   .card-container {
     .row {
